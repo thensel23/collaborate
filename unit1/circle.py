@@ -9,6 +9,10 @@ def area_circ(r_in):
     if r_in < 0:
         raise ValueError("The radius must be >= 0.")
     area_out = np.pi * r_in**2
-    print("The area of a circle with radius r = {:3.2f}cm\
-        is A = {:4.2f}cm2.".format(r_in, area_out))
+    print(
+        "The area of a circle with radius r = {:3.2f}cm\
+        is A = {:4.2f}cm2.".format(
+            r_in, area_out
+        )
+    )
     return area_out
