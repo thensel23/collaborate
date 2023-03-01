@@ -131,4 +131,4 @@ dmypy.json
 # output files
 output/*
 
-.pre-commit-config.yaml
+#.pre-commit-config.yaml
