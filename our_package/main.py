@@ -1,18 +1,21 @@
-from settings import *
-from analysis import *
-from data_handling import *
+"""This is the main routine of our package!
 
-import pathlib
+Here, all the subroutines are executed and the results are stored whereever...
+"""
 
-path = pathlib.Path(__file__).parent.resolve()
+from settings import *  # noqa
+from analysis import *  # noqa
+from data_handling import read_in_np, plot_columns
+
+
+def numerical():
+
+    # data file:
+    datafolder = "../data"
+    datafile = "efield.t"
+    data = read_in_np(datafolder, datafile)
+    plot_columns(data)
+
 
 if __name__ == "__main__":
-
-    try:
-        fname = FILENAMES[0]
-        dir = FILEDIR
-        df = read_in_df(dir, fname)
-
-        plot_columns(df)
-    except:
-        raise Exception("something went terribly wrong!")
+    numerical()
