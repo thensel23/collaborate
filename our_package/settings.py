@@ -6,6 +6,7 @@ Global settings for package
 # a tuple containing the file names
 FILENAMES = "npop.t", "efield.t", "expec.t", "table.dat", "nstate_i.t"
 FILEDIR = "../data/"  # if you run using jupyter
+OUTDIR = "../output/"
 # filedir = 'data/' # if you run using your IDE
 # variance threshold
 THRESHV = 1.0e-5
