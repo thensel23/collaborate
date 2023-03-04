@@ -6,8 +6,6 @@ Analysis module.
 
 import numpy as np
 
-# Task 2: Create plots of the relevant data and save as pdf
-
 
 def check_if_significant(data, thresh):
     """Check variance of columns and select the ones above a threshold.
