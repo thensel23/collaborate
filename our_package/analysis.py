@@ -5,6 +5,7 @@ Analysis module.
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def check_if_significant(data, thresh):
@@ -53,6 +54,16 @@ def do_DFT(data, tmax):
     data_s = np.fft.rfft(data)
     data_w = np.fft.rfftfreq(tmax)
     return data_s, data_w
+
+
+def plot_ft(freq, spec):
+    """plot the Fouriertrans of the data"""
+    fig, ax = plt.subplots()
+    power_spec = np.abs(spec) ** 2
+    ax.plot(freq, power_spec)
+    ax.set_xlabel("frequency")
+    ax.set_ylabel("power")
+    plt.show()
 
 
 def do_fft(data, tmax):
