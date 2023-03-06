@@ -13,6 +13,11 @@ if __name__ == "__main__":
         dir = FILEDIR
         df = read_in_df(dir, fname)
 
-        plot_columns(df)
+        # add some code here
+
+        # add some code here
+
+        print(df.head())
+        # plot_columns(df)
     except:
         raise Exception("something went terribly wrong!")
