@@ -24,11 +24,11 @@ def read_in_np(filedir, filename):
     return data
 
 
-def plot_columns(data):
+def plot_columns(data, titlestr):
     """Plot the data for visiual inspection."""
     fig, ax = plt.subplots(len(data) - 1, 1, sharex=True)
     for i in range(1, len(data)):
         ax[i - 1].plot(data[0], data[i])
         ax[i - 1].set_title("Column {}".format(i))
-    fig.suptitle("first visual inspection")
+    fig.suptitle(titlestr)
     plt.show()
