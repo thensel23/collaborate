@@ -12,7 +12,7 @@ Welcome to collaborate's documentation!
 
    readme_link
    modules
-
+   license_link
 
 
 Indices and tables
