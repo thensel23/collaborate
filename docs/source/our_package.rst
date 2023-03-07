@@ -37,9 +37,9 @@ our\_package.settings module
    :show-inheritance:
 
 our\_package.statistics module
-----------------------------
+------------------------------
 
 .. automodule:: statistics
-   :members: J. Chang
+   :members:
    :undoc-members:
    :show-inheritance:
