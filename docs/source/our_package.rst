@@ -35,3 +35,11 @@ our\_package.settings module
    :members:
    :undoc-members:
    :show-inheritance:
+
+our\_package.statistics module
+----------------------------
+
+.. automodule:: statistics
+   :members: J. Chang
+   :undoc-members:
+   :show-inheritance:

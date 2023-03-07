@@ -22,7 +22,7 @@ release = "0.0.1"
 extensions = ["sphinx.ext.autodoc", "myst_parser", "sphinx.ext.napoleon"]
 
 templates_path = ["_templates"]
-exclude_patterns = []
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 
 # -- Options for HTML output -------------------------------------------------
