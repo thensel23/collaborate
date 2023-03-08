@@ -1,5 +1,4 @@
 import statistics
-import pytest
 import settings
 import pandas as pd
 

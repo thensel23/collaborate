@@ -1,4 +1,4 @@
-import settings 
+import settings
 import analysis
 import data_handling
 import numpy as np
@@ -26,12 +26,22 @@ def plot_correlation(df, threshv, output_path, output_name):
     fig.savefig(save_path)
 
 
-### Testing
+# Testing
 if __name__ == "__main__":
     # relevant data
     df = data_handling.read_in_df(settings.FILEDIR, settings.FILENAMES[2])
-    plot_relevant(df=df, threshv=settings.THRESHV, output_path=settings.OUTDIR, output_name="test1")
+    plot_relevant(
+        df=df,
+        threshv=settings.THRESHV,
+        output_path=settings.OUTDIR,
+        output_name="test1",
+    )
 
     # correlation
     df = data_handling.read_in_df(settings.FILEDIR, settings.FILENAMES[0])
-    plot_correlation(df=df, threshv=settings.THRESHV, output_path=settings.OUTDIR, output_name="test2")
+    plot_correlation(
+        df=df,
+        threshv=settings.THRESHV,
+        output_path=settings.OUTDIR,
+        output_name="test2",
+    )
