@@ -1,13 +1,13 @@
-from settings import *
-from analysis import *
-from data_handling import *
+import settings 
+import analysis
+import data_handling
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 
 def plot_relevant(df, threshv, output_path: str, output_name: str):
-    df, indices = check_if_significant(df, threshv)
+    df, indices = analysis.check_if_significant(df, threshv)
     print(indices)
     sns.pairplot(df, corner=True)
     save_path = f"{output_path}{output_name}.pdf"
@@ -15,7 +15,7 @@ def plot_relevant(df, threshv, output_path: str, output_name: str):
 
 
 def plot_correlation(df, threshv, output_path, output_name):
-    df, indices = check_if_significant(df, threshv)
+    df, indices = analysis.check_if_significant(df, threshv)
     print(indices)
     df_short = df.drop(["time"], axis=1)
     df_corr = df_short.corr()
@@ -29,9 +29,9 @@ def plot_correlation(df, threshv, output_path, output_name):
 ### Testing
 if __name__ == "__main__":
     # relevant data
-    df = read_in_df(FILEDIR, FILENAMES[2])
-    plot_relevant(df=df, threshv=THRESHV, output_path=OUTDIR, output_name="test1")
+    df = data_handling.read_in_df(settings.FILEDIR, settings.FILENAMES[2])
+    plot_relevant(df=df, threshv=settings.THRESHV, output_path=settings.OUTDIR, output_name="test1")
 
     # correlation
-    df = read_in_df(FILEDIR, FILENAMES[0])
-    plot_correlation(df=df, threshv=THRESHV, output_path=OUTDIR, output_name="test2")
+    df = data_handling.read_in_df(settings.FILEDIR, settings.FILENAMES[0])
+    plot_correlation(df=df, threshv=settings.THRESHV, output_path=settings.OUTDIR, output_name="test2")

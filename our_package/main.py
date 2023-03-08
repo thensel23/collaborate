@@ -4,7 +4,6 @@ Here, all the subroutines are executed and the results are stored whereever...
 """
 
 import matplotlib.pyplot as plt
-import settings
 import analysis
 from data_handling import read_in_np, plot_columns
 
