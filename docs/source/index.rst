@@ -15,7 +15,6 @@ Welcome to collaborate's documentation!
    license_link
 
 
-
 Indices and tables
 ==================
 

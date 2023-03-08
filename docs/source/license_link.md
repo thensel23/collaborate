@@ -1,2 +1,4 @@
-```{include} ../../LICENSE
+# LICENSE
+
+```{include} ../../LICENSE.md
 ```
