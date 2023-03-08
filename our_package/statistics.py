@@ -34,4 +34,4 @@ if __name__ == "__main__":
 
     # correlation
     df = read_in_df(FILEDIR, FILENAMES[0])
-    plot_correlation(df=df, threshv=THRESHV, output_path=OUTDIR, output_name="test1")
+    plot_correlation(df=df, threshv=THRESHV, output_path=OUTDIR, output_name="test2")
