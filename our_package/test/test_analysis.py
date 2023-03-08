@@ -57,3 +57,15 @@ def test_do_DFT(get_ft_input, get_ft_result):
     ft, freq = an.do_DFT(*get_ft_input)
     np.testing.assert_array_equal(ft, get_ft_result[0])
     np.testing.assert_array_equal(freq, get_ft_result[1])
+
+
+@pytest.fixture
+def get_wavedata():
+    wave = np.array([[0.0, 0.1], [0.2, 0.4], [0.1, 0.2], [0.1, 0.1]])
+    auto_corr = np.array([0.06 + 0.0j, 0.11 + 0.0j])
+    return wave, auto_corr
+
+
+def test_calc_auto(get_wavedata):
+    res = an.calc_auto(get_wavedata[0])
+    np.testing.assert_array_almost_equal(res, get_wavedata[1])
