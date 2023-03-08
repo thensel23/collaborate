@@ -7,6 +7,17 @@ import seaborn as sns
 
 
 def plot_relevant(df, threshv, output_path: str, output_name: str):
+    """Plots significant data in pairplot and save plot as PDF
+
+    Args:
+        df: Pandas DataFrame object with numerical values
+        threshv: the threshhold value that filters out insignificant data
+        output_path: to which directory will the PDF be saved
+        output_name: the name of the PDF
+
+    Returns:
+        A dataframe with significant data
+    """
     df, indices = check_if_significant(df, threshv)
     print(indices)
     sns.pairplot(df, corner=True)
@@ -15,6 +26,17 @@ def plot_relevant(df, threshv, output_path: str, output_name: str):
 
 
 def plot_correlation(df, threshv, output_path, output_name):
+    """Plots correlation of significant data in heatmap and save plot as PDF
+
+    Args:
+        df: Pandas DataFrame object with numerical values
+        threshv: the threshhold value that filters out insignificant data
+        output_path: to which directory will the PDF be saved
+        output_name: the name of the PDF
+
+    Returns:
+        A dataframe with significant data
+    """
     df, indices = check_if_significant(df, threshv)
     print(indices)
     df_short = df.drop(["time"], axis=1)
