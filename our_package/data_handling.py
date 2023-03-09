@@ -11,7 +11,7 @@ def read_in_df(filedir, filename):
     """Load data from testfile using pandas"""
     name = "{}{}".format(filedir, filename)
     print("Reading from file {} - pandas".format(name))
-    data = pd.read_csv(name, r"\s+")
+    data = pd.read_csv(name, sep=r"\s+")
     return data
 
 
