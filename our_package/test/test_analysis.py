@@ -2,11 +2,10 @@
 
 """Unittests for the analysis module"""
 
-
 import pytest
+import analysis
+import pandas as pd
 import numpy as np
-
-import analysis as an
 
 
 @pytest.fixture
@@ -16,6 +15,14 @@ def get_sample_data():
     )
     thresh = 0.01
     return data, thresh
+
+
+@pytest.fixture
+def get_sample_data_pd():
+    data = {"col1": [1, 2], "col2": [0, 0]}
+    df = pd.DataFrame(data=data)
+    thresh = 0.1
+    return df, thresh
 
 
 @pytest.fixture
@@ -31,7 +38,7 @@ def get_sample_data_stripped():
 
 
 def test_check_if_significant(get_sample_data, get_sample_data_stripped):
-    data_out, idx_out = an.check_if_significant_np(
+    data_out, idx_out = analysis.check_if_significant_np(
         get_sample_data[0], get_sample_data[1]
     )
     np.testing.assert_array_equal(data_out, get_sample_data_stripped[0])
@@ -54,7 +61,7 @@ def get_ft_result(get_ft_input):
 
 
 def test_do_DFT(get_ft_input, get_ft_result):
-    ft, freq = an.do_DFT(*get_ft_input)
+    ft, freq = analysis.do_DFT(*get_ft_input)
     np.testing.assert_array_equal(ft, get_ft_result[0])
     np.testing.assert_array_equal(freq, get_ft_result[1])
 
@@ -67,5 +74,19 @@ def get_wavedata():
 
 
 def test_calc_auto(get_wavedata):
-    res = an.calc_auto(get_wavedata[0])
+    res = analysis.calc_auto(get_wavedata[0])
     np.testing.assert_array_almost_equal(res, get_wavedata[1])
+    data = {"col1": [1, 2], "col2": [0, 0]}
+    df = pd.DataFrame(data=data)
+    thresh = 0.1
+    return df, thresh
+
+
+def test_check_if_significant(get_sample_data_pd):
+    data_out, indices = analysis.check_if_significant(
+        get_sample_data_pd[0], get_sample_data_pd[1]
+    )
+    ref_data = {"col1": [1, 2]}
+    ref_df = pd.DataFrame(data=ref_data)
+    pd.testing.assert_frame_equal(data_out, ref_df)
+    assert indices == ["col1"]
