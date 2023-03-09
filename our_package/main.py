@@ -4,19 +4,18 @@ Here, all the subroutines are executed and the results are stored whereever...
 """
 
 import matplotlib.pyplot as plt
-from settings import *  # noqa
-from analysis import *  # noqa
+import analysis
 from data_handling import read_in_np, plot_columns
 
 
 def numerical(plot=False):
     # data file:
-    datafolder = "../data"
+    datafolder = "./data"
     datafile = "efield.t"
     data = read_in_np(datafolder, datafile)
 
-    efield2, _ = check_if_significant_np(data, 0.00001)
-    efourier, freqs = do_DFT(data, len(efield2[0]))
+    efield2, _ = analysis.check_if_significant_np(data, 0.00001)
+    efourier, freqs = analysis.do_DFT(data, len(efield2[0]))
 
     if plot:
         plot_columns(data, "electric field: raw data")
